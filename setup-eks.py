@@ -6,6 +6,7 @@ from aws_cdk import (
     aws_codebuild as codebuild,
     aws_ec2 as ec2,
     aws_cloud9 as cloud9,
+    aws_s3 as s3,
     core
 )
 import os
@@ -59,17 +60,22 @@ class EnvironmentStack(core.Stack):
         # Create Artifact
         artifact = codepipeline.Artifact()
 
+        # S3 Source Bucket
+        source_bucket = s3.Bucket.from_bucket_attributes(
+            self, "SourceBucket",
+            bucket_arn="arn:aws:s3:::jumiker-kubeflow-workshop"
+        )
+
         # Add Source Stage
         pipeline.add_stage(
             stage_name="Source",
             actions=[
-                codepipeline_actions.GitHubSourceAction(
-                    action_name="SourceCodeRepo",
-                    owner="aws-samples",
-                    repo="con317-reinvent19",
+                codepipeline_actions.S3SourceAction(
+                    action_name="S3SourceRepo",
+                    bucket=source_bucket,
+                    bucket_key="source.zip",
                     output=artifact,
-                    oauth_token=core.SecretValue.secrets_manager("github-token"),
-                    trigger=codepipeline_actions.GitHubTrigger.NONE
+                    trigger=codepipeline_actions.S3Trigger.NONE
                 )
             ]
         )
@@ -95,17 +101,11 @@ class EnvironmentStack(core.Stack):
             ]
         )
 
-        cloud9_repository = cloud9.CfnEnvironmentEC2.RepositoryProperty(
-            path_component="con317-reinvent19",
-            repository_url="https://github.com/aws-samples/con317-reinvent19"
-        )
-
         cloud9_instance = cloud9.CfnEnvironmentEC2(
             self, 'Cloud9Instance',
             instance_type="t2.micro",
             automatic_stop_time_minutes=30,
-            subnet_id=eks_vpc.public_subnets[0].subnet_id,
-            repositories=[cloud9_repository]
+            subnet_id=eks_vpc.public_subnets[0].subnet_id
         )
 
         pipeline.node.add_dependency(eks_vpc)

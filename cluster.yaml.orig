@@ -31,7 +31,7 @@ cloudWatch:
 nodeGroups:
   - name: ng
     instanceType: m5.large
-    desiredCapacity: 1
+    desiredCapacity: 6
     privateNetworking: true
     volumeSize: 100
     volumeType: gp2
