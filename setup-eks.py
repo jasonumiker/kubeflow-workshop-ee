@@ -63,7 +63,7 @@ class EnvironmentStack(core.Stack):
         # S3 Source Bucket
         source_bucket = s3.Bucket.from_bucket_attributes(
             self, "SourceBucket",
-            bucket_arn="arn:aws:s3:::jumiker-kubeflow-workshop"
+            bucket_arn=core.Fn.join("",["arn:aws:s3:::ee-assets-prod-",core.Fn.ref("AWS::Region")])
         )
 
         # Add Source Stage
@@ -73,7 +73,7 @@ class EnvironmentStack(core.Stack):
                 codepipeline_actions.S3SourceAction(
                     action_name="S3SourceRepo",
                     bucket=source_bucket,
-                    bucket_key="source.zip",
+                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v2/source.zip",
                     output=artifact,
                     trigger=codepipeline_actions.S3Trigger.NONE
                 )
