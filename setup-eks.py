@@ -105,7 +105,8 @@ class EnvironmentStack(core.Stack):
             self, 'Cloud9Instance',
             instance_type="t2.micro",
             automatic_stop_time_minutes=30,
-            subnet_id=eks_vpc.public_subnets[0].subnet_id
+            subnet_id=eks_vpc.public_subnets[0].subnet_id,
+            owner_arn=core.Fn.join("",["arn:aws:iam::",core.Fn.ref("AWS::AccountId"),":role/TeamRole"])
         )
 
         pipeline.node.add_dependency(eks_vpc)

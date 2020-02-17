@@ -1724,6 +1724,18 @@
       "Properties": {
         "InstanceType": "t2.micro",
         "AutomaticStopTimeMinutes": 30,
+        "OwnerArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:aws:iam::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":role/TeamRole"
+            ]
+          ]
+        },
         "SubnetId": {
           "Ref": "VPCPublicSubnet1SubnetB4246D30"
         },
