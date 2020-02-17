@@ -1266,7 +1266,7 @@
                       }
                     ]
                   },
-                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v2/source.zip",
+                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v3/source.zip",
                   "PollForSourceChanges": false
                 },
                 "Name": "S3SourceRepo",

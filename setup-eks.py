@@ -73,7 +73,7 @@ class EnvironmentStack(core.Stack):
                 codepipeline_actions.S3SourceAction(
                     action_name="S3SourceRepo",
                     bucket=source_bucket,
-                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v2/source.zip",
+                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v3/source.zip",
                     output=artifact,
                     trigger=codepipeline_actions.S3Trigger.NONE
                 )
