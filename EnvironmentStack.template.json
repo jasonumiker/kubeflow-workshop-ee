@@ -1266,7 +1266,7 @@
                       }
                     ]
                   },
-                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v3/source.zip",
+                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v4/source.zip",
                   "PollForSourceChanges": false
                 },
                 "Name": "S3SourceRepo",
@@ -1728,11 +1728,11 @@
           "Fn::Join": [
             "",
             [
-              "arn:aws:iam::",
+              "arn:aws:sts::",
               {
                 "Ref": "AWS::AccountId"
               },
-              ":role/TeamRole"
+              ":assumed-role/TeamRole/MasterKey"
             ]
           ]
         },

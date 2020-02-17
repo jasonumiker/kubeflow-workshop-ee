@@ -73,7 +73,7 @@ class EnvironmentStack(core.Stack):
                 codepipeline_actions.S3SourceAction(
                     action_name="S3SourceRepo",
                     bucket=source_bucket,
-                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v3/source.zip",
+                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v4/source.zip",
                     output=artifact,
                     trigger=codepipeline_actions.S3Trigger.NONE
                 )
@@ -106,7 +106,7 @@ class EnvironmentStack(core.Stack):
             instance_type="t2.micro",
             automatic_stop_time_minutes=30,
             subnet_id=eks_vpc.public_subnets[0].subnet_id,
-            owner_arn=core.Fn.join("",["arn:aws:iam::",core.Fn.ref("AWS::AccountId"),":role/TeamRole"])
+            owner_arn=core.Fn.join("",["arn:aws:sts::",core.Fn.ref("AWS::AccountId"),":assumed-role/TeamRole/MasterKey"])
         )
 
         pipeline.node.add_dependency(eks_vpc)
