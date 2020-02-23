@@ -7,3 +7,4 @@ aws-cdk.aws_codebuild
 aws-cdk.aws_ec2
 aws-cdk.aws_cloud9
 aws-cdk.aws_s3
+aws-cdk.aws_cloudformation

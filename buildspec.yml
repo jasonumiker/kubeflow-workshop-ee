@@ -22,6 +22,8 @@ phases:
       - echo Assigning IAM Instance Profile to Cloud9 EC2 Instance on `date`
       - export CLOUD9ID=$(aws ec2 describe-instances --filter "Name=tag:Name,Values=aws-cloud9*" --query Reservations[0].Instances[0].InstanceId --output text)
       - aws ec2 associate-iam-instance-profile --instance-id $CLOUD9ID --iam-instance-profile Name=$INSTANCEPROFILEID
+      - export CLOUD9ID2=$(aws cloud9 list-environments --query environmentIds[0] --output text)
+      - aws cloud9 create-environment-membership --environment-id $CLOUD9ID2 --user-arn arn:aws:sts::$AWS_ACCOUNT_ID:assumed-role/TeamRole/MasterKey --permissions read-write      
       - echo EKS Provisioning started on `date`
       - cp cluster.yaml.orig cluster.yaml
       - sed -i "s/PrivateSubnet1ID/$PrivateSubnet1ID/g" cluster.yaml
