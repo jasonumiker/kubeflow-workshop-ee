@@ -5,7 +5,6 @@ from aws_cdk import (
     aws_codepipeline_actions as codepipeline_actions,
     aws_codebuild as codebuild,
     aws_ec2 as ec2,
-#    aws_cloud9 as cloud9,
     aws_s3 as s3,
     aws_cloudformation as cloudformation,
     core
@@ -74,7 +73,7 @@ class EnvironmentStack(core.Stack):
                 codepipeline_actions.S3SourceAction(
                     action_name="S3SourceRepo",
                     bucket=source_bucket,
-                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v5/source.zip",
+                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v6/source.zip",
                     output=artifact,
                     trigger=codepipeline_actions.S3Trigger.NONE
                 )
@@ -103,23 +102,14 @@ class EnvironmentStack(core.Stack):
             ]
         )
 
-#        cloud9_instance = cloud9.CfnEnvironmentEC2(
-#            self, 'Cloud9Instance',
-#            instance_type="t2.micro",
-#           automatic_stop_time_minutes=30,
-#           subnet_id=eks_vpc.public_subnets[0].subnet_id,
-#            owner_arn=core.Fn.join("",["arn:aws:sts::",core.Fn.ref("AWS::AccountId"),":assumed-role/TeamRole/MasterKey"])
-#        )
-
         cloud9_stack = cloudformation.CfnStack(
             self, "Cloud9Stack",
-            template_url="https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/templates/cloud9-ide-instance.yaml",
+#            template_url="https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/templates/cloud9-ide-instance.yaml",
+            template_url=core.Fn.join("",["s3://ee-assets-prod-",core.Fn.ref("AWS::Region"),"/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml"]),
             parameters={"C9InstanceType":"m5.large","C9Subnet":eks_vpc.public_subnets[0].subnet_id}
         )
 
         pipeline.node.add_dependency(eks_vpc)
-#        pipeline.node.add_dependency(cloud9_instance)
-#        cloud9_instance.node.add_dependency(eks_vpc)
         pipeline.node.add_dependency(cloud9_stack)
 
 app = core.App()
