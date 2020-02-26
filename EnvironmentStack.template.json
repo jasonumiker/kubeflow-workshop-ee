@@ -814,9 +814,7 @@
                 "kms:Delete*",
                 "kms:ScheduleKeyDeletion",
                 "kms:CancelKeyDeletion",
-                "kms:GenerateDataKey",
-                "kms:TagResource",
-                "kms:UntagResource"
+                "kms:GenerateDataKey"
               ],
               "Effect": "Allow",
               "Principal": {
@@ -968,12 +966,6 @@
               }
             }
           ]
-        },
-        "PublicAccessBlockConfiguration": {
-          "BlockPublicAcls": true,
-          "BlockPublicPolicy": true,
-          "IgnorePublicAcls": true,
-          "RestrictPublicBuckets": true
         },
         "Tags": [
           {
@@ -1274,7 +1266,7 @@
                       }
                     ]
                   },
-                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v5/source.zip",
+                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v6/source.zip",
                   "PollForSourceChanges": false
                 },
                 "Name": "S3SourceRepo",
@@ -1734,7 +1726,18 @@
     "Cloud9Stack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/templates/cloud9-ide-instance.yaml",
+        "TemplateURL": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://ee-assets-prod-",
+              {
+                "Ref": "AWS::Region"
+              },
+              "/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml"
+            ]
+          ]
+        },
         "Parameters": {
           "C9InstanceType": "m5.large",
           "C9Subnet": {
