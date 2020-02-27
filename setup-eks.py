@@ -105,7 +105,7 @@ class EnvironmentStack(core.Stack):
         cloud9_stack = cloudformation.CfnStack(
             self, "Cloud9Stack",
 #            template_url="https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/templates/cloud9-ide-instance.yaml",
-            template_url=core.Fn.join("",["s3://ee-assets-prod-",core.Fn.ref("AWS::Region"),"/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml"]),
+            template_url="https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml",
             parameters={"C9InstanceType":"m5.large","C9Subnet":eks_vpc.public_subnets[0].subnet_id}
         )
 

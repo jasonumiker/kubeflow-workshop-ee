@@ -1726,18 +1726,7 @@
     "Cloud9Stack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": {
-          "Fn::Join": [
-            "",
-            [
-              "s3://ee-assets-prod-",
-              {
-                "Ref": "AWS::Region"
-              },
-              "/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml"
-            ]
-          ]
-        },
+        "TemplateURL": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml",
         "Parameters": {
           "C9InstanceType": "m5.large",
           "C9Subnet": {
