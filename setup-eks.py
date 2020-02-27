@@ -106,7 +106,7 @@ class EnvironmentStack(core.Stack):
             self, "Cloud9Stack",
 #            template_url="https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/templates/cloud9-ide-instance.yaml",
             template_url="https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml",
-            parameters={"C9InstanceType":"m5.large","C9Subnet":eks_vpc.public_subnets[0].subnet_id}
+            parameters={"C9InstanceType":"m5.large","C9Subnet":eks_vpc.public_subnets[0].subnet_id,"OwnerArn":core.Fn.join("",["arn:aws:sts::",core.Fn.ref("AWS::AccountId"),":assumed-role/TeamRole/MasterKey"])}
         )
 
         pipeline.node.add_dependency(eks_vpc)

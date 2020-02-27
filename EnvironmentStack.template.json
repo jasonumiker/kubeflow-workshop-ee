@@ -1731,6 +1731,18 @@
           "C9InstanceType": "m5.large",
           "C9Subnet": {
             "Ref": "VPCPublicSubnet1SubnetB4246D30"
+          },
+          "OwnerArn": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:aws:sts::",
+                {
+                  "Ref": "AWS::AccountId"
+                },
+                ":assumed-role/TeamRole/MasterKey"
+              ]
+            ]
           }
         },
         "Tags": [
