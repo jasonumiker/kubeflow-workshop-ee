@@ -14,12 +14,12 @@
           },
           {
             "Key": "Name",
-            "Value": "EnvironmentStack/VPC"
+            "Value": "EnvironmentStack-notEE/VPC"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/Resource"
       }
     },
     "VPCPublicSubnet1SubnetB4246D30": {
@@ -40,14 +40,6 @@
         "MapPublicIpOnLaunch": true,
         "Tags": [
           {
-            "Key": "kubernetes.io/cluster/cluster",
-            "Value": "shared"
-          },
-          {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet1"
-          },
-          {
             "Key": "aws-cdk:subnet-name",
             "Value": "Public"
           },
@@ -56,13 +48,21 @@
             "Value": "Public"
           },
           {
+            "Key": "kubernetes.io/cluster/cluster",
+            "Value": "shared"
+          },
+          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet1/Subnet"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet1/Subnet"
       }
     },
     "VPCPublicSubnet1RouteTableFEE4B781": {
@@ -77,17 +77,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet1"
-          },
-          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet1/RouteTable"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet1/RouteTable"
       }
     },
     "VPCPublicSubnet1RouteTableAssociation0B0896DC": {
@@ -101,7 +101,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet1/RouteTableAssociation"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet1/RouteTableAssociation"
       }
     },
     "VPCPublicSubnet1DefaultRoute91CEF279": {
@@ -119,7 +119,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet1/DefaultRoute"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet1/DefaultRoute"
       }
     },
     "VPCPublicSubnet1EIP6AD938E8": {
@@ -132,17 +132,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet1"
-          },
-          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet1/EIP"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet1/EIP"
       }
     },
     "VPCPublicSubnet1NATGatewayE0556630": {
@@ -163,17 +163,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet1"
-          },
-          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet1/NATGateway"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet1/NATGateway"
       }
     },
     "VPCPublicSubnet2Subnet74179F39": {
@@ -194,14 +194,6 @@
         "MapPublicIpOnLaunch": true,
         "Tags": [
           {
-            "Key": "kubernetes.io/cluster/cluster",
-            "Value": "shared"
-          },
-          {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet2"
-          },
-          {
             "Key": "aws-cdk:subnet-name",
             "Value": "Public"
           },
@@ -210,13 +202,21 @@
             "Value": "Public"
           },
           {
+            "Key": "kubernetes.io/cluster/cluster",
+            "Value": "shared"
+          },
+          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet2/Subnet"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet2/Subnet"
       }
     },
     "VPCPublicSubnet2RouteTable6F1A15F1": {
@@ -231,17 +231,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet2"
-          },
-          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet2/RouteTable"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet2/RouteTable"
       }
     },
     "VPCPublicSubnet2RouteTableAssociation5A808732": {
@@ -255,7 +255,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet2/RouteTableAssociation"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet2/RouteTableAssociation"
       }
     },
     "VPCPublicSubnet2DefaultRouteB7481BBA": {
@@ -273,7 +273,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet2/DefaultRoute"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet2/DefaultRoute"
       }
     },
     "VPCPublicSubnet2EIP4947BC00": {
@@ -286,17 +286,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet2"
-          },
-          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet2/EIP"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet2/EIP"
       }
     },
     "VPCPublicSubnet2NATGateway3C070193": {
@@ -317,17 +317,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PublicSubnet2"
-          },
-          {
             "Key": "kubernetes.io/role/elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PublicSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PublicSubnet2/NATGateway"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PublicSubnet2/NATGateway"
       }
     },
     "VPCPrivateSubnet1Subnet8BCA10E0": {
@@ -348,14 +348,6 @@
         "MapPublicIpOnLaunch": false,
         "Tags": [
           {
-            "Key": "kubernetes.io/cluster/cluster",
-            "Value": "shared"
-          },
-          {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PrivateSubnet1"
-          },
-          {
             "Key": "aws-cdk:subnet-name",
             "Value": "Private"
           },
@@ -364,13 +356,21 @@
             "Value": "Private"
           },
           {
+            "Key": "kubernetes.io/cluster/cluster",
+            "Value": "shared"
+          },
+          {
             "Key": "kubernetes.io/role/internal-elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PrivateSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet1/Subnet"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet1/Subnet"
       }
     },
     "VPCPrivateSubnet1RouteTableBE8A6027": {
@@ -385,17 +385,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PrivateSubnet1"
-          },
-          {
             "Key": "kubernetes.io/role/internal-elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PrivateSubnet1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet1/RouteTable"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet1/RouteTable"
       }
     },
     "VPCPrivateSubnet1RouteTableAssociation347902D1": {
@@ -409,7 +409,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet1/RouteTableAssociation"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet1/RouteTableAssociation"
       }
     },
     "VPCPrivateSubnet1DefaultRouteAE1D6490": {
@@ -424,7 +424,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet1/DefaultRoute"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet1/DefaultRoute"
       }
     },
     "VPCPrivateSubnet2SubnetCFCDAA7A": {
@@ -445,14 +445,6 @@
         "MapPublicIpOnLaunch": false,
         "Tags": [
           {
-            "Key": "kubernetes.io/cluster/cluster",
-            "Value": "shared"
-          },
-          {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PrivateSubnet2"
-          },
-          {
             "Key": "aws-cdk:subnet-name",
             "Value": "Private"
           },
@@ -461,13 +453,21 @@
             "Value": "Private"
           },
           {
+            "Key": "kubernetes.io/cluster/cluster",
+            "Value": "shared"
+          },
+          {
             "Key": "kubernetes.io/role/internal-elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PrivateSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet2/Subnet"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet2/Subnet"
       }
     },
     "VPCPrivateSubnet2RouteTable0A19E10E": {
@@ -482,17 +482,17 @@
             "Value": "shared"
           },
           {
-            "Key": "Name",
-            "Value": "EnvironmentStack/VPC/PrivateSubnet2"
-          },
-          {
             "Key": "kubernetes.io/role/internal-elb",
             "Value": "1"
+          },
+          {
+            "Key": "Name",
+            "Value": "EnvironmentStack-notEE/VPC/PrivateSubnet2"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet2/RouteTable"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet2/RouteTable"
       }
     },
     "VPCPrivateSubnet2RouteTableAssociation0C73D413": {
@@ -506,7 +506,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet2/RouteTableAssociation"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet2/RouteTableAssociation"
       }
     },
     "VPCPrivateSubnet2DefaultRouteF4F5CFD2": {
@@ -521,7 +521,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/PrivateSubnet2/DefaultRoute"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/PrivateSubnet2/DefaultRoute"
       }
     },
     "VPCIGWB7E252D3": {
@@ -534,12 +534,12 @@
           },
           {
             "Key": "Name",
-            "Value": "EnvironmentStack/VPC"
+            "Value": "EnvironmentStack-notEE/VPC"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/IGW"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/IGW"
       }
     },
     "VPCVPCGW99B986DC": {
@@ -553,7 +553,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/VPC/VPCGW"
+        "aws:cdk:path": "EnvironmentStack-notEE/VPC/VPCGW"
       }
     },
     "BuildRole41B77417": {
@@ -606,7 +606,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/BuildRole/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/BuildRole/Resource"
       }
     },
     "BuildRoleDefaultPolicy05D1D9FE": {
@@ -670,6 +670,39 @@
                   ]
                 }
               ]
+            },
+            {
+              "Action": [
+                "codebuild:CreateReportGroup",
+                "codebuild:CreateReport",
+                "codebuild:UpdateReport",
+                "codebuild:BatchPutTestCases"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":codebuild:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":report-group/",
+                    {
+                      "Ref": "BuildProject097C5DB7"
+                    },
+                    "-*"
+                  ]
+                ]
+              }
             },
             {
               "Action": [
@@ -740,7 +773,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/BuildRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/BuildRole/DefaultPolicy/Resource"
       }
     },
     "InstanceProfile": {
@@ -753,7 +786,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/InstanceProfile"
+        "aws:cdk:path": "EnvironmentStack-notEE/InstanceProfile"
       }
     },
     "BuildProject097C5DB7": {
@@ -792,7 +825,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/BuildProject/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/BuildProject/Resource"
       }
     },
     "PipelineArtifactsBucketEncryptionKey01D58D69": {
@@ -814,7 +847,9 @@
                 "kms:Delete*",
                 "kms:ScheduleKeyDeletion",
                 "kms:CancelKeyDeletion",
-                "kms:GenerateDataKey"
+                "kms:GenerateDataKey",
+                "kms:TagResource",
+                "kms:UntagResource"
               ],
               "Effect": "Allow",
               "Principal": {
@@ -946,7 +981,7 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/ArtifactsBucketEncryptionKey/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/ArtifactsBucketEncryptionKey/Resource"
       }
     },
     "PipelineArtifactsBucket22248F97": {
@@ -966,6 +1001,12 @@
               }
             }
           ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
         },
         "Tags": [
           {
@@ -1003,13 +1044,13 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/ArtifactsBucket/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/ArtifactsBucket/Resource"
       }
     },
     "PipelineArtifactsBucketEncryptionKeyAlias5C510EEE": {
       "Type": "AWS::KMS::Alias",
       "Properties": {
-        "AliasName": "alias/codepipeline-environmentstackpipeline08cefc16",
+        "AliasName": "alias/codepipeline-environmentstacknoteepipelined226413e",
         "TargetKeyId": {
           "Fn::GetAtt": [
             "PipelineArtifactsBucketEncryptionKey01D58D69",
@@ -1046,7 +1087,7 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource"
       }
     },
     "PipelineRoleD68726F7": {
@@ -1098,7 +1139,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Role/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Role/Resource"
       }
     },
     "PipelineRoleDefaultPolicyC7A05455": {
@@ -1212,7 +1253,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Role/DefaultPolicy/Resource"
       }
     },
     "PipelineC660917D": {
@@ -1266,7 +1307,7 @@
                       }
                     ]
                   },
-                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v6/source.zip",
+                  "S3ObjectKey": "modules/2cae1f20008d4fc5aaef294602649b98/v7/source.zip",
                   "PollForSourceChanges": false
                 },
                 "Name": "S3SourceRepo",
@@ -1405,7 +1446,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Resource"
       }
     },
     "PipelineSourceS3SourceRepoCodePipelineActionRole92E94F3C": {
@@ -1472,7 +1513,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Source/S3SourceRepo/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Source/S3SourceRepo/CodePipelineActionRole/Resource"
       }
     },
     "PipelineSourceS3SourceRepoCodePipelineActionRoleDefaultPolicy09012301": {
@@ -1594,7 +1635,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Source/S3SourceRepo/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Source/S3SourceRepo/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "PipelineDeployCodeBuildProjectCodePipelineActionRole09523741": {
@@ -1661,7 +1702,7 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Deploy/CodeBuildProject/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Deploy/CodeBuildProject/CodePipelineActionRole/Resource"
       }
     },
     "PipelineDeployCodeBuildProjectCodePipelineActionRoleDefaultPolicyBEF02A68": {
@@ -1720,13 +1761,13 @@
         "VPCVPCGW99B986DC"
       ],
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Pipeline/Deploy/CodeBuildProject/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "EnvironmentStack-notEE/Pipeline/Deploy/CodeBuildProject/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "Cloud9Stack": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v6/cloud9-ide-instance.yaml",
+        "TemplateURL": "https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v7/cloud9-ide-instance.yaml",
         "Parameters": {
           "C9InstanceType": "m5.large",
           "C9Subnet": {
@@ -1741,7 +1782,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "EnvironmentStack/Cloud9Stack"
+        "aws:cdk:path": "EnvironmentStack-notEE/Cloud9Stack"
       }
     }
   }
