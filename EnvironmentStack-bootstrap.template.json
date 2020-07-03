@@ -1785,7 +1785,9 @@
               ]
             ]
           },
-          "BootstrapScriptS3Uri": "s3://ee-assets-prod-us-east-1/modules/2cae1f20008d4fc5aaef294602649b98/v8/bootstrap.sh"
+          "BootstrapScriptS3Uri": "s3://ee-assets-prod-us-east-1/modules/2cae1f20008d4fc5aaef294602649b98/v8/bootstrap.sh",
+          "QSS3BucketName": "ee-assets-prod-us-east-1",
+          "QSS3KeyPrefix": "modules/2cae1f20008d4fc5aaef294602649b98/v8/"
         },
         "Tags": [
           {
