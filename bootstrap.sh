@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Setting up required prerequisites
-pip install --upgrade awscli
+pip install --upgrade pip awscli
 curl --silent --location -o /usr/local/bin/kubectl "https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/kubectl"
 chmod +x /usr/local/bin/kubectl
 curl --silent --location -o /usr/local/bin/aws-iam-authenticator "https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/aws-iam-authenticator"
@@ -16,4 +16,3 @@ echo "export AWS_REGION=${AWS_REGION}" | tee -a ~/.bashrc
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
 aws eks update-kubeconfig --name cluster
-kubectl get nodes -o wide
