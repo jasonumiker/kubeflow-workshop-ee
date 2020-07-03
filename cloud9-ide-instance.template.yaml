@@ -5,22 +5,22 @@ Metadata:
   LICENSE: Apache License, Version 2.0
   AWS::CloudFormation::Interface:
     ParameterGroups:
-    - Label:
-        default: Cloud9 configuration
-      Parameters:
-      - C9InstanceType
-      - C9StopTime
-      - C9Subnet
-      - EBSVolumeSize
-      - BootstrapScriptS3Uri
-      - BootstrapArguments
-      - OwnerArn
-    - Label:
-        default: AWS Quick Start configuration
-      Parameters:
-      - OutputBucketName
-      - QSS3BucketName
-      - QSS3KeyPrefix
+      - Label:
+          default: Cloud9 configuration
+        Parameters:
+          - C9InstanceType
+          - C9StopTime
+          - C9Subnet
+          - EBSVolumeSize
+          - BootstrapScriptS3Uri
+          - BootstrapArguments
+          - OwnerArn
+      - Label:
+          default: AWS Quick Start configuration
+        Parameters:
+          - OutputBucketName
+          - QSS3BucketName
+          - QSS3KeyPrefix
     ParameterLabels:
       C9InstanceType:
         default: Cloud9 instance type
@@ -42,56 +42,58 @@ Metadata:
         default: Quick Start S3 key prefix
 Parameters:
   C9InstanceType:
-    Description: The instance type of the new Amazon EC2 instance that AWS Cloud9
+    Description:
+      The instance type of the new Amazon EC2 instance that AWS Cloud9
       will launch for the development environment.
     Type: String
     Default: t2.micro
     AllowedValues:
-     - t2.nano
-     - t2.micro
-     - t2.small
-     - t2.medium
-     - t2.large
-     - t2.xlarge
-     - t2.2xlarge
-     - t3.nano
-     - t3.micro
-     - t3.small
-     - t3.medium
-     - t3.large
-     - t3.xlarge
-     - t3.2xlarge
-     - m4.large
-     - m4.xlarge
-     - m4.2xlarge
-     - m4.4xlarge
-     - m4.10xlarge
-     - m4.16xlarge
-     - m5.large
-     - m5.xlarge
-     - m5.2xlarge
-     - m5.4xlarge
-     - m5.8xlarge
-     - m5.12xlarge
-     - m5.16xlarge
-     - m5.24xlarge
-     - m5.metal
-     - c4.large
-     - c4.xlarge
-     - c4.2xlarge
-     - c4.4xlarge
-     - c4.8xlarge
-     - c5.large
-     - c5.xlarge
-     - c5.2xlarge
-     - c5.4xlarge
-     - c5.9xlarge
-     - c5.12xlarge
-     - c5.18xlarge
-     - c5.24xlarge
-     - c5.metal
+      - t2.nano
+      - t2.micro
+      - t2.small
+      - t2.medium
+      - t2.large
+      - t2.xlarge
+      - t2.2xlarge
+      - t3.nano
+      - t3.micro
+      - t3.small
+      - t3.medium
+      - t3.large
+      - t3.xlarge
+      - t3.2xlarge
+      - m4.large
+      - m4.xlarge
+      - m4.2xlarge
+      - m4.4xlarge
+      - m4.10xlarge
+      - m4.16xlarge
+      - m5.large
+      - m5.xlarge
+      - m5.2xlarge
+      - m5.4xlarge
+      - m5.8xlarge
+      - m5.12xlarge
+      - m5.16xlarge
+      - m5.24xlarge
+      - m5.metal
+      - c4.large
+      - c4.xlarge
+      - c4.2xlarge
+      - c4.4xlarge
+      - c4.8xlarge
+      - c5.large
+      - c5.xlarge
+      - c5.2xlarge
+      - c5.4xlarge
+      - c5.9xlarge
+      - c5.12xlarge
+      - c5.18xlarge
+      - c5.24xlarge
+      - c5.metal
   C9StopTime:
-    Description: The number of minutes until the running instance is shut down after
+    Description:
+      The number of minutes until the running instance is shut down after
       the environment has last been used.
     Type: Number
     Default: 30
@@ -105,41 +107,48 @@ Parameters:
   BootstrapScriptS3Uri:
     Description: S3 URI to a shell script that will be executed on the Cloud9 instance. If left blank, no custom bootstrap will be run.
     Type: String
-    Default: ""
+    Default: ''
   BootstrapArguments:
     Description: Arguments string to pass to the bootstrap script.
     Type: String
-    Default: ""
+    Default: ''
   OutputBucketName:
-    Description: 'OPTIONAL: Bucket name where the zip file output should be placed.
+    Description:
+      'OPTIONAL: Bucket name where the zip file output should be placed.
       If left blank, a bucket name will be automatically generated.'
     Type: String
     Default: ''
   QSS3BucketName:
     AllowedPattern: ^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$
-    ConstraintDescription: Quick Start bucket name can include numbers, lowercase
+    ConstraintDescription:
+      Quick Start bucket name can include numbers, lowercase
       letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen
       (-).
     Default: aws-quickstart
-    Description: S3 bucket name for the Quick Start assets. This string can include
+    Description:
+      S3 bucket name for the Quick Start assets. This string can include
       numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start
       or end with a hyphen (-).
     Type: String
   QSS3KeyPrefix:
     AllowedPattern: ^[0-9a-zA-Z-/.]*$
-    ConstraintDescription: Quick Start key prefix can include numbers, lowercase letters,
+    ConstraintDescription:
+      Quick Start key prefix can include numbers, lowercase letters,
       uppercase letters, hyphens (-), dots(.) and forward slash (/).
     Default: quickstart-cloud9-ide/
-    Description: S3 key prefix for the Quick Start assets. Quick Start key prefix
+    Description:
+      S3 key prefix for the Quick Start assets. Quick Start key prefix
       can include numbers, lowercase letters, uppercase letters, hyphens (-), dots(.) and
       forward slash (/).
     Type: String
   OwnerArn:
-    Description: The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS Identity and Access Management (IAM) principal. 
+    Description: 
+      The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS Identity and Access Management (IAM) principal. 
       If this value is not specified, the ARN defaults to this stack's creator.
     Type: String
     Default: ''
 Conditions:
+  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
   CreateZipsBucket: !Equals [!Ref 'OutputBucketName', '']
   DoCustomBootstrap: !Not [!Equals [!Ref 'BootstrapScriptS3Uri', '']]
   DoOwnerArn: !Not [!Equals [!Ref 'OwnerArn', '']]
@@ -151,7 +160,7 @@ Resources:
   Cloud9Env:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties:
-      Name: !Ref AWS::StackName
+      # Name: !Ref AWS::StackName
       Description: !Sub '${AWS::AccountId}-${AWS::Region}-${AWS::StackName}'
       AutomaticStopTimeMinutes: !Ref C9StopTime
       InstanceType: !Ref C9InstanceType
@@ -163,28 +172,33 @@ Resources:
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
-        - Effect: Allow
-          Principal:
-            Service: ec2.amazonaws.com
-          Action: sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
       ManagedPolicyArns:
-      - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
       Path: /
       Policies:
-      - PolicyName: get-bootstrap
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Action: s3:GetObject
-              Resource: !Sub 'arn:aws:s3:::${QSS3BucketName}/${QSS3KeyPrefix}*'
-      - PolicyName: describe-ec2
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Action: [ "ec2:DescribeInstances", "ec2:DescribeVolumes", "ec2:ModifyVolume" ]
-              Resource: '*'
+        - PolicyName: get-bootstrap
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource: !Sub 'arn:aws:s3:::${QSS3BucketName}/${QSS3KeyPrefix}*'
+        - PolicyName: describe-ec2
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  [
+                    'ec2:DescribeInstances',
+                    'ec2:DescribeVolumes',
+                    'ec2:ModifyVolume',
+                  ]
+                Resource: '*'
   Cloud9InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
@@ -195,27 +209,39 @@ Resources:
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
-        - Effect: Allow
-          Principal:
-            Service: lambda.amazonaws.com
-          Action: sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
       ManagedPolicyArns:
-      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       Path: /
       Policies:
-      - PolicyName: lambda-copier
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Action: s3:GetObject
-              Resource: !Sub 'arn:aws:s3:::${QSS3BucketName}/${QSS3KeyPrefix}*'
-            - Effect: Allow
-              Action: [ "s3:PutObject", "s3:DeleteObject" ]
-              Resource:
-                "Fn::Sub":
-                - 'arn:aws:s3:::${ZipsBucket}/${QSS3KeyPrefix}*'
-                - ZipsBucket: !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
+        - PolicyName: lambda-copier
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource: !Sub
+                  - arn:${AWS::Partition}:s3:::${S3Bucket}/${QSS3KeyPrefix}*
+                  - S3Bucket:
+                      !If [
+                        UsingDefaultBucket,
+                        !Sub '${QSS3BucketName}-${AWS::Region}',
+                        !Ref QSS3BucketName,
+                      ]
+              - Effect: Allow
+                Action: ['s3:PutObject', 's3:DeleteObject']
+                Resource:
+                  'Fn::Sub':
+                    - 'arn:aws:s3:::${ZipsBucket}/${QSS3KeyPrefix}*'
+                    - ZipsBucket:
+                        !If [
+                          CreateZipsBucket,
+                          Ref: LambdaZipsBucket,
+                          Ref: OutputBucketName,
+                        ]
   CopyZipsFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -287,61 +313,73 @@ Resources:
     Type: Custom::CopyZips
     Properties:
       ServiceToken: !GetAtt 'CopyZipsFunction.Arn'
-      DestBucket: !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
-      SourceBucket: !Ref QSS3BucketName
+      DestBucket:
+        !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
+      SourceBucket:
+        !If [
+          UsingDefaultBucket,
+          !Sub '${QSS3BucketName}-${AWS::Region}',
+          !Ref QSS3BucketName,
+        ]
       Prefix: !Ref QSS3KeyPrefix
       Objects:
-      - functions/packages/c9bootstrap/lambda.zip
-      - functions/packages/c9InstanceProfile/lambda.zip
-      - functions/packages/c9DiskResize/lambda.zip
+        - functions/packages/c9bootstrap/lambda.zip
+        - functions/packages/c9InstanceProfile/lambda.zip
+        - functions/packages/c9DiskResize/lambda.zip
   C9SetupRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
-        - Effect: Allow
-          Principal:
-            Service: lambda.amazonaws.com
-          Action: sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
       ManagedPolicyArns:
-      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       Path: /
       Policies:
-      - PolicyName: lambda-AttachRoleC9
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-          - Effect: Allow
-            Action:
-            - cloudformation:DescribeStackResources
-            - ec2:AssociateIamInstanceProfile
-            - ec2:AuthorizeSecurityGroupIngress
-            - ec2:DescribeInstances
-            - ec2:DescribeInstanceStatus
-            - ec2:DescribeInstanceAttribute
-            - ec2:DescribeIamInstanceProfileAssociations
-            - ec2:DescribeVolumes
-            - ec2:DesctibeVolumeAttribute
-            - ec2:DescribeVolumesModifications
-            - ec2:DescribeVolumeStatus
-            - ssm:DescribeInstanceInformation
-            - ec2:ModifyVolume
-            - ec2:ReplaceIamInstanceProfileAssociation
-            - ec2:ReportInstanceStatus
-            - ssm:SendCommand
-            - ssm:GetCommandInvocation
-            - s3:GetObject
-            Resource: '*'
-          - Effect: Allow
-            Action: iam:PassRole
-            Resource: !GetAtt 'Cloud9Role.Arn'
-          - Effect: Allow
-            Action: [ "lambda:AddPermission", "lambda:RemovePermission" ]
-            Resource: '*'
-          - Effect: Allow
-            Action: [ "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:RemoveTargets" ]
-            Resource: '*'
+        - PolicyName: lambda-AttachRoleC9
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - cloudformation:DescribeStackResources
+                  - ec2:AssociateIamInstanceProfile
+                  - ec2:AuthorizeSecurityGroupIngress
+                  - ec2:DescribeInstances
+                  - ec2:DescribeInstanceStatus
+                  - ec2:DescribeInstanceAttribute
+                  - ec2:DescribeIamInstanceProfileAssociations
+                  - ec2:DescribeVolumes
+                  - ec2:DesctibeVolumeAttribute
+                  - ec2:DescribeVolumesModifications
+                  - ec2:DescribeVolumeStatus
+                  - ssm:DescribeInstanceInformation
+                  - ec2:ModifyVolume
+                  - ec2:ReplaceIamInstanceProfileAssociation
+                  - ec2:ReportInstanceStatus
+                  - ssm:SendCommand
+                  - ssm:GetCommandInvocation
+                  - s3:GetObject
+                Resource: '*'
+              - Effect: Allow
+                Action: iam:PassRole
+                Resource: !GetAtt 'Cloud9Role.Arn'
+              - Effect: Allow
+                Action: ['lambda:AddPermission', 'lambda:RemovePermission']
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  [
+                    'events:PutRule',
+                    'events:DeleteRule',
+                    'events:PutTargets',
+                    'events:RemoveTargets',
+                  ]
+                Resource: '*'
   C9InstanceProfileLambda:
     DependsOn: CopyZips
     Type: AWS::Lambda::Function
@@ -352,7 +390,8 @@ Resources:
       Role: !GetAtt 'C9SetupRole.Arn'
       Timeout: 900
       Code:
-        S3Bucket: !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
+        S3Bucket:
+          !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
         S3Key: !Sub '${QSS3KeyPrefix}functions/packages/c9InstanceProfile/lambda.zip'
   C9InstanceProfile:
     Type: Custom::C9InstanceProfileLambda
@@ -370,7 +409,8 @@ Resources:
       Role: !GetAtt 'C9SetupRole.Arn'
       Timeout: 900
       Code:
-        S3Bucket: !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
+        S3Bucket:
+          !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
         S3Key: !Sub '${QSS3KeyPrefix}functions/packages/c9DiskResize/lambda.zip'
   C9DiskResize:
     Type: Custom::C9DiskResizeLambda
@@ -390,7 +430,8 @@ Resources:
       Role: !GetAtt 'C9SetupRole.Arn'
       Timeout: 900
       Code:
-        S3Bucket: !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
+        S3Bucket:
+          !If [CreateZipsBucket, Ref: LambdaZipsBucket, Ref: OutputBucketName]
         S3Key: !Sub '${QSS3KeyPrefix}functions/packages/c9bootstrap/lambda.zip'
   C9Bootstrap:
     Condition: DoCustomBootstrap

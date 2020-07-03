@@ -73,7 +73,7 @@ class EnvironmentStack(core.Stack):
                 codepipeline_actions.S3SourceAction(
                     action_name="S3SourceRepo",
                     bucket=source_bucket,
-                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v7/source.zip",
+                    bucket_key="modules/2cae1f20008d4fc5aaef294602649b98/v8/source.zip",
                     output=artifact,
                     trigger=codepipeline_actions.S3Trigger.NONE
                 )
@@ -105,13 +105,16 @@ class EnvironmentStack(core.Stack):
         cloud9_stack = cloudformation.CfnStack(
             self, "Cloud9Stack",
 #            template_url="https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/templates/cloud9-ide-instance.yaml",
-            template_url="https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v7/cloud9-ide-instance.yaml",
-            parameters={"C9InstanceType":"m5.large","C9Subnet":eks_vpc.public_subnets[0].subnet_id}
+            template_url="https://ee-assets-prod-us-east-1.s3.amazonaws.com/modules/2cae1f20008d4fc5aaef294602649b98/v8/cloud9-ide-instance.template.yaml",
+            parameters={"C9InstanceType":"m5.large","C9Subnet":eks_vpc.public_subnets[0].subnet_id,
+                "OwnerArn":core.Fn.join("",["arn:aws:sts::",core.Fn.ref("AWS::AccountId"),":assumed-role/TeamRole/MasterKey"]),
+                "BootstrapScriptS3Uri":"s3://ee-assets-prod-us-east-1/modules/2cae1f20008d4fc5aaef294602649b98/v8/bootstrap.sh"
+                }
         )
 
         pipeline.node.add_dependency(eks_vpc)
         pipeline.node.add_dependency(cloud9_stack)
 
 app = core.App()
-environment_stack = EnvironmentStack(app, "EnvironmentStack-notEE")
+environment_stack = EnvironmentStack(app, "EnvironmentStack-bootstrap")
 app.synth()
