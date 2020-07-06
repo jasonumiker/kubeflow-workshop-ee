@@ -1,4 +1,4 @@
-S3URI="s3://bucket/path/"
+S3URI="s3://bucket/path"
 
 aws s3 cp source.zip $S3URI/source.zip
 aws s3 cp cloud9-ide-instance.template.yaml $S3URI/cloud9-ide-instance.template.yaml
